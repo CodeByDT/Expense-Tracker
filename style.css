@@ -22,6 +22,39 @@ body {
     
 }
 
+.shadows {
+    box-shadow: 0 0 10px black;
+    padding: 20px;
+    
+    max-width: 1140px; /* Large screens*/
+  } 
+
+  /* Responsive widths like Bootstrap container */
+  @media (max-width: 1200px) {
+    .shadows {
+      max-width: 960px; /* Extra-large screens */
+    }
+  }
+
+  @media (max-width: 992px) {
+    .shadows {
+      max-width: 720px; /* Large screens */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .shadows {
+      max-width: 540px; /* Medium screens */
+    }
+  }
+
+  @media (max-width: 576px) {
+    .shadows {
+      max-width: 100%; /* Small screens - full width */
+      padding: 10px; /* Reduce padding on small screens */
+    }
+  }
+
 label{
     font-weight: 700;
 }
