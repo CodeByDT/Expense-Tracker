@@ -99,3 +99,10 @@ ul.list-group {
     width: 150px; /* Adjust label width for alignment */
     text-align: right;
 }
+
+.balance{
+    font-weight: 700;
+    font-size: large;
+    text-decoration: underline;
+    color: red;
+}
