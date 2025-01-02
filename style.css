@@ -1,0 +1,101 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 25px;
+    background-color: #f8f9fa;
+}
+.container {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* width: 30%; */
+    box-shadow: 0 0 10px black;
+    /* width: 90%; */
+    padding: 20px;
+    
+}
+
+label{
+    font-weight: 700;
+}
+
+input{
+    border: 8px solid black;
+}
+.shadows {
+    box-shadow: 0 0 10px black;
+    padding: 20px;
+    
+    max-width: 1140px; /* Large screens */
+  }
+
+  /* Responsive widths like Bootstrap container */
+  @media (max-width: 1200px) {
+    .shadows {
+      max-width: 960px; /* Extra-large screens */
+    }
+  }
+
+  @media (max-width: 992px) {
+    .shadows {
+      max-width: 720px; /* Large screens */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .shadows {
+      max-width: 540px; /* Medium screens */
+    }
+  }
+
+  @media (max-width: 576px) {
+    .shadows {
+      max-width: 100%; /* Small screens - full width */
+      padding: 10px; /* Reduce padding on small screens */
+    }
+  }
+
+h1{
+    text-decoration: underline;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    margin-right: 10px;
+}
+.summary-container, .transactions-container {
+    margin-top: 30px;
+}
+.btn {
+    margin-left: 10px;
+}
+
+.head{
+    margin-top: 100px;
+}
+ul.list-group {
+    margin-top: 20px;
+}
+
+.form-control {
+    width: 200px; /* Set input box width */
+}
+.form-group {
+    display: flex; /* Align label and input horizontally */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px; /* Add space between label and input */
+}
+.form-group label {
+    width: 150px; /* Adjust label width for alignment */
+    text-align: right;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Create Account</h1>
+
+        <div id="signup-form" class="mt-4 mx-auto  shadows">
+            <!-- Name -->
+            <div class="form-group mb-3">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+            </div>
+            <!-- Mobile Number -->
+            <div class="form-group mb-3">
+                <label for="mobile">Mobile Number:</label>
+                <input type="text" class="form-control" id="mobile" placeholder="Enter your mobile number">
+            </div>
+            <!-- OTP -->
+            <div class="form-group mb-3">
+                <label for="otp">OTP:</label>
+                <input type="text" class="form-control" id="otp" placeholder="Enter OTP">
+                <button class="btn btn-info btn-sm ms-2" id="generate-otp">Send OTP</button>
+            </div>
+            <!-- Password -->
+            <div class="form-group mb-3">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" placeholder="Create a password">
+            </div>
+            <!-- Buttons -->
+            <div class="d-grid gap-2 mt-3">
+                <button class="btn btn-primary" id="signup-btn">Create Account</button>
+                <button class="btn btn-secondary" id="reset-btn">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="signup.js"></script>
+</body>
+</html>
