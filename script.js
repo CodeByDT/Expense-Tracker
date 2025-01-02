@@ -15,8 +15,40 @@ document.addEventListener('DOMContentLoaded', () => {
         const balance = document.getElementById('balance');
         const transactionList = document.getElementById('transaction-list');
 
-        let income = 0;
-        let expense = 0;
+        let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+
+        // Function to update the summary and display transactions
+        const updateSummary = () => {
+            let income = 0;
+            let expense = 0;
+
+            transactionList.innerHTML = '';
+
+            transactions.forEach(transaction => {
+                if (transaction.type === 'income') {
+                    income += transaction.amount;
+                } else if (transaction.type === 'expense') {
+                    expense += transaction.amount;
+                }
+
+                // Create transaction list item
+                const li = document.createElement('li');
+                li.classList.add('list-group-item');
+                li.innerHTML = `${transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1)}: 
+                    <span style="color: ${transaction.type === 'income' ? 'green' : 'red'};">${transaction.amount.toFixed(2)}</span> - ${transaction.description}`;
+
+                // Append to transaction list
+                transactionList.appendChild(li);
+            });
+
+            // Update totals
+            totalIncome.textContent = income.toFixed(2);
+            totalExpense.textContent = expense.toFixed(2);
+            balance.textContent = (income - expense).toFixed(2);
+        };
+
+        // Load existing transactions and update summary
+        updateSummary();
 
         // Function to add income or expense
         addBtn.addEventListener('click', () => {
@@ -29,26 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            if (type === 'income') {
-                income += amount;
-            } else if (type === 'expense') {
-                expense += amount;
-            }
+            // Add transaction to the array
+            const transaction = { type, amount, description };
+            transactions.push(transaction);
 
-            // Create transaction list item
-            const li = document.createElement('li');
-            li.classList.add('list-group-item');
-            li.innerHTML = `${type.charAt(0).toUpperCase() + type.slice(1)}: <span style="color: ${type === 'income' ? 'green' : 'red'};">${amount.toFixed(2)}</span> - ${description}`;
+            // Save to localStorage
+            localStorage.setItem('transactions', JSON.stringify(transactions));
 
-            // Append to transaction list
-            transactionList.appendChild(li);
-
-            // Update summary
-            totalIncome.textContent = income.toFixed(2);
-            totalExpense.textContent = expense.toFixed(2);
-            balance.textContent = (income - expense).toFixed(2);
-
-            // Clear inputs
+            // Update summary and clear inputs
+            updateSummary();
             amountInput.value = '';
             descriptionInput.value = '';
             typeSelect.value = 'income';
@@ -56,13 +77,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Reset button functionality
         resetBtn.addEventListener('click', () => {
+            // Clear transactions
+            transactions = [];
+
+            // Save to localStorage
+            localStorage.setItem('transactions', JSON.stringify(transactions));
+
+            // Update summary
+            updateSummary();
+
+            // Clear inputs
             amountInput.value = '';
             descriptionInput.value = '';
             typeSelect.value = 'income';
-            totalIncome.textContent = '0';
-            totalExpense.textContent = '0';
-            balance.textContent = '0';
-            transactionList.innerHTML = ''; // Clear the transaction list
         });
     }
 });
