@@ -29,12 +29,12 @@ label{
 input{
     border: 8px solid black;
 }
-.shadows {
+/* .shadows {
     box-shadow: 0 0 10px black;
     padding: 20px;
     
     max-width: 1140px; /* Large screens */
-  }
+  } */
 
   /* Responsive widths like Bootstrap container */
   @media (max-width: 1200px) {
